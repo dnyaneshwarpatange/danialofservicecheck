@@ -182,7 +182,7 @@ def httpcall(url):
 
 			urllib2.urlopen(request)
 
-	except urllib2.HTTPError as e:
+	except (urllib2.HTTPError, e):
 
 
 			#print e.code
@@ -193,7 +193,7 @@ def httpcall(url):
 
 			code=500
 
-	except urllib2.URLError as e:
+	except (urllib2.URLError, e):
 
 			#print e.reason
 
@@ -225,7 +225,7 @@ class HTTPThread(threading.Thread):
 
 					set_flag(2)
 
-		except Exception, ex:
+		except (Exception, ex):
 
 			pass
 
