@@ -240,7 +240,8 @@ class MonitorThread(threading.Thread):
 
 		while flag==0:
 
-			if (previous+100<request_counter) & (previous<>request_counter):
+			if (previous + 100 < request_counter) and (previous != request_counter):
+
 
 				print "%d Requests Sent" % (request_counter)
 
