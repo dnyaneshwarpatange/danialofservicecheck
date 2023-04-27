@@ -16,15 +16,13 @@
 
 # ----------------------------------------------------------------------------------------------
 
-import urllib2
-
+import urllib.request
+import urllib.error
 import sys
-
 import threading
-
 import random
-
 import re
+
 
 
 #global params
