@@ -193,7 +193,7 @@ def httpcall(url):
 
 			code=500
 
-	except urllib2.URLError, e:
+	except urllib2.URLError as e:
 
 			#print e.reason
 
