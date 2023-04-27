@@ -189,7 +189,7 @@ def httpcall(url):
 
 			set_flag(1)
 
-			print 'Response Code 500'
+			print ('Response Code 500')
 
 			code=500
 
@@ -248,7 +248,7 @@ class MonitorThread(threading.Thread):
 
 		if flag==2:
 
-			print "\n-- FuckYou Attack Finished --"
+			print ("\n-- FuckYou Attack Finished --")
 
 
 #execute 
@@ -269,7 +269,7 @@ else:
 
 	else:
 
-		print "-- FuckYou Attack Started --"
+		print ("-- FuckYou Attack Started --")
 
 		if len(sys.argv)== 3:
 
