@@ -182,7 +182,8 @@ def httpcall(url):
 
 			urllib2.urlopen(request)
 
-	except urllib2.HTTPError, e:
+	except urllib2.HTTPError as e:
+
 
 			#print e.code
 
