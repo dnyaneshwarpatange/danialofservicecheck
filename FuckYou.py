@@ -134,11 +134,11 @@ def usage():
 
 	print ('---------------------------------------------------')
 
-	print 'USAGE: python FuckYou.py <url>'
+	print ('USAGE: python FuckYou.py <url>')
 
-	print 'you can add "safe" after url, to autoshut after dos'
+	print ('you can add "safe" after url, to autoshut after dos')
 	
-	print 'Join @IndianWatchdogs'
+	print ('Join @IndianWatchdogs')
 
 	print ('---------------------------------------------------')
 
