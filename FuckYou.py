@@ -186,7 +186,7 @@ def httpcall(url):
 
 			set_flag(1)
 
-			print 'Response Code 500'
+			print ('Response Code 500')
 
 			code=500
 
