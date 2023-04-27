@@ -243,7 +243,7 @@ class MonitorThread(threading.Thread):
 			if (previous + 100 < request_counter) and (previous != request_counter):
 
 
-				print "%d Requests Sent" % (request_counter)
+				print ("%d Requests Sent" % (request_counter))
 
 				previous=request_counter
 
