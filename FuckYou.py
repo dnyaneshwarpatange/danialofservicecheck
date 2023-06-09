@@ -12,7 +12,7 @@
 
 #
 
-# author : Professor, version 1.0, @IndianWatchdogs
+# author : Professor, version 1.0, @NetDefenders
 
 # ----------------------------------------------------------------------------------------------
 
@@ -138,7 +138,7 @@ def usage():
 
 	print 'you can add "safe" after url, to autoshut after dos'
 	
-	print 'Join @IndianWatchdogs'
+	print 'Join @NetDefenders'
 
 	print '---------------------------------------------------'
 
