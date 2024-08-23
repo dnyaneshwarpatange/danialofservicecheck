@@ -295,4 +295,3 @@ else:
 		t = MonitorThread()
 
 		t.start()
-make this sript to take input as ip adress on port to work instead of url
